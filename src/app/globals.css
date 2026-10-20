@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-emergency: #b91c1c;
+}
+
+html,
+body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Leaflet sits under our floating controls. */
+.leaflet-container {
+  font: inherit;
+  z-index: 0;
+}
+
+/* Visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@utility field {
+  @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-base shadow-sm focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30;
+}
+
+@utility label {
+  @apply mb-1 block text-sm font-medium text-slate-800;
+}
+
+@utility hint {
+  @apply mt-1 text-sm text-slate-500;
+}
+
+@utility error-text {
+  @apply mt-1 text-sm font-medium text-red-700;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-base font-semibold transition disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+@utility btn-primary {
+  @apply btn bg-brand-700 text-white hover:bg-brand-800;
+}
+
+@utility btn-secondary {
+  @apply btn border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+}
+
+@utility btn-danger {
+  @apply btn bg-red-700 text-white hover:bg-red-800;
+}
+
+/* On phones the bottom sheet covers the zoom buttons; pinch to zoom instead. */
+@media (max-width: 767px) {
+  .explorer-map .leaflet-control-zoom {
+    display: none;
+  }
+}
